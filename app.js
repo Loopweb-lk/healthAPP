@@ -5,10 +5,9 @@ dotenv.config();
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const authRoutes = require('./routes/authRoutes');
+const mealRoutes = require('./routes/MealPlannerRoute');
 
 // Load environment variables
-
-
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -30,6 +29,10 @@ const swaggerOptions = {
         {
             name: "Authentication",
             description: "APIs related to user authentication",
+        }, 
+        {
+            name: "Meal Planner",
+            description: "APIs related to Meals",
         },
     ],
     apis: ['./routes/*.js'],
@@ -40,6 +43,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/meal', mealRoutes);
 
 // Start server
 app.listen(port, () => {
