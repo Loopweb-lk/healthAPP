@@ -7,7 +7,7 @@ const FoodItem = {
     },
 
     findAll: async () => {
-        const sql = 'SELECT name, category, size, calorie FROM food';
+        const sql = 'SELECT id, name, category, size, calorie FROM food';
         const results = await dbService.query(sql);
         return results;
     },
