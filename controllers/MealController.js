@@ -3,6 +3,9 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const FoodItem = require('../models/FoodItem');
 const IngredientItem = require('../models/IngredientItem');
+const PDFDocument = require('pdfkit');
+const fs = require('fs');
+const path = require('path');
 
 exports.getMeals = async (req, res) => {
     try {
@@ -87,12 +90,49 @@ exports.getIngredients = async (req, res) => {
                 }
             });
         }
+
+        const ingredientData = Object.values(ingredientQuantities);
+
+        const doc = new PDFDocument();
+        doc.pipe(fs.createWriteStream('grocery_list.pdf'));
+        doc.fontSize(18).text('Grocery List', { align: 'center' });
+        doc.fontSize(12).moveDown(2);
+
+        const productNameWidth = 300;
+        const quantityX = productNameWidth + 50;
+
+        ingredientData.forEach(item => {
+            const productName = item.item;
+            const quantity = item.quantity;
+            doc.text(productName, 50, doc.y, { width: productNameWidth, align: 'left' });
+            doc.text(quantity.toString(), quantityX, doc.y, { align: 'right' });
+            doc.moveDown(0.5);
+        });
+
+        doc.end();
+
         res.status(200).json({ ingredients: Object.values(ingredientQuantities) });
 
     } catch (error) {
         res.status(500).json({ error: 'Internal server error', details: error });
     }
 };
+
+exports.getIngredientsPdf = async (req, res) => {
+    try {
+        const filePath = path.join(__dirname, '../', 'grocery_list.pdf');
+
+        if (fs.existsSync(filePath)) {
+            res.setHeader('Content-Type', 'application/pdf');
+            res.setHeader('Content-Disposition', 'attachment; filename="grocery_list.pdf"');
+            res.sendFile(filePath);
+        } else {
+            res.status(404).json({ error: "file not found" });
+        }
+    } catch (error) {
+        res.status(500).json({ error: 'Internal server error', details: error.message });
+    }
+}
 
 const getRandomMeal = (mealList) => {
     const randomIndex = Math.floor(Math.random() * mealList.length);

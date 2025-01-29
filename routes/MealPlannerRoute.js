@@ -1,5 +1,5 @@
 const express = require('express');
-const { getMeals, getIngredients } = require('../controllers/MealController');
+const { getMeals, getIngredients, getIngredientsPdf } = require('../controllers/MealController');
 const { authenticateToken } = require('../middlewares/authMiddleware');
 
 const router = express.Router();
@@ -39,6 +39,26 @@ router.get('/getMeals', getMeals);
  *         description: JSON
  */
 router.post('/getIngredients', getIngredients);
+
+/**
+ * @swagger
+ * /api/meal/getIngredientPDF:
+ *   get:
+ *     tags:
+ *       - Meal Planner
+ *     summary: Get the grocery list as a PDF
+ *     responses:
+ *       200:
+ *         description: Grocery list PDF
+ *         content:
+ *           application/pdf:
+ *             schema:
+ *               type: string
+ *               format: binary
+ *       404:
+ *         description: PDF file not found
+ */
+router.get('/getIngredientPDF', getIngredientsPdf);
 
 
 module.exports = router;
