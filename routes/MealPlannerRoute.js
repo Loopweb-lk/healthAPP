@@ -1,5 +1,5 @@
 const express = require('express');
-const { getMeals, getIngredients, getIngredientsPdf } = require('../controllers/MealController');
+const { getMeals, getIngredients, getIngredientsPdf, createFoodItem, getFoodItems, createMeal, findByDateRange, getAllMeals, deleteMeal, cloneMeal } = require('../controllers/MealController');
 const { authenticateToken } = require('../middlewares/authMiddleware');
 
 const router = express.Router();
@@ -15,7 +15,7 @@ const router = express.Router();
  *       201:
  *         description: JSON
  */
-router.get('/getMeals', getMeals);
+router.get('/getMeals', authenticateToken, getMeals);
 
 /**
  * @swagger
@@ -38,7 +38,7 @@ router.get('/getMeals', getMeals);
  *       201:
  *         description: JSON
  */
-router.post('/getIngredients', getIngredients);
+router.post('/getIngredients', authenticateToken, getIngredients);
 
 /**
  * @swagger
@@ -58,8 +58,42 @@ router.post('/getIngredients', getIngredients);
  *       404:
  *         description: PDF file not found
  */
-router.get('/getIngredientPDF', getIngredientsPdf);
+router.get('/getIngredientPDF', authenticateToken, getIngredientsPdf);
 
+/**
+ * @swagger
+ * /api/meal/createFoodItem:
+ *   post:
+ *     tags:
+ *       - Meal Planner
+ *     summary: Create new Meal item 
+ *     requestBody:
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               food_ids:
+ *                 type: string
+ *             required:
+ *               - food_ids
+ *     responses:
+ *       201:
+ *         description: JSON
+ */
+router.post('/createFoodItem', authenticateToken, createFoodItem);
+
+router.get('/foodItems', authenticateToken, getFoodItems);
+
+router.post('/createMeal', authenticateToken, createMeal);
+
+router.get('/meals', authenticateToken, getAllMeals);
+
+router.post('/findByDateRange', authenticateToken, findByDateRange);
+
+router.post('/deleteMeal', authenticateToken, deleteMeal);
+
+router.post('/cloneMeal', authenticateToken, cloneMeal);
 
 module.exports = router;
 

@@ -6,6 +6,10 @@ const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const authRoutes = require('./routes/authRoutes');
 const mealRoutes = require('./routes/MealPlannerRoute');
+const activityRoute = require('./routes/ActivityRoute');
+const sugarRoute = require('./routes/SugarRoute');
+const eventRoute = require('./routes/EventRoute');
+const generalRoute = require('./routes/GeneralRoute');
 
 // Load environment variables
 const app = express();
@@ -29,7 +33,7 @@ const swaggerOptions = {
         {
             name: "Authentication",
             description: "APIs related to user authentication",
-        }, 
+        },
         {
             name: "Meal Planner",
             description: "APIs related to Meals",
@@ -44,6 +48,10 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/meal', mealRoutes);
+app.use('/api/activity', activityRoute);
+app.use('/api/sugar', sugarRoute);
+app.use('/api/event', eventRoute);
+app.use('/api/general', generalRoute);
 
 // Start server
 app.listen(port, () => {

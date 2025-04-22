@@ -2,6 +2,8 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const FoodItem = require('../models/FoodItem');
+const Meal = require('../models/Meal');
+const MealItem = require('../models/MealItem');
 const IngredientItem = require('../models/IngredientItem');
 const PDFDocument = require('pdfkit');
 const fs = require('fs');
@@ -9,7 +11,10 @@ const path = require('path');
 
 exports.getMeals = async (req, res) => {
     try {
-        const foodItems = await FoodItem.findAll();
+        const user = await User.findByUsername(req.user.username);
+        const foodItems = await FoodItem.findByType(user.mealType);
+        const calorieIntake = Number(user.calorieIntake)
+
         const breakfastItems = foodItems.filter(item => item.category === "Breakfast");
         const lunchItems = foodItems.filter(item => item.category === "Lunch");
         const snackItems = foodItems.filter(item => item.category === "Snack");
@@ -38,7 +43,7 @@ exports.getMeals = async (req, res) => {
             totalCalories += dinner.calorie;
             dailyMeals["dinner"] = dinner;
 
-            while (totalCalories > 2500) {
+            while (totalCalories > calorieIntake) {
                 dailyMeals = {};
                 totalCalories = 0;
 
@@ -133,6 +138,131 @@ exports.getIngredientsPdf = async (req, res) => {
         res.status(500).json({ error: 'Internal server error', details: error.message });
     }
 }
+
+exports.createFoodItem = async (req, res) => {
+    const { name, category, size, calorie, type, image } = req.body;
+
+    try {
+        await FoodItem.create(name, category, size, calorie, type, image);
+        res.status(201).json({ message: 'Food Item created successfully' });
+    } catch (error) {
+        res.status(500).json({ error: 'Internal server error', details: error });
+    }
+};
+
+exports.getFoodItems = async (req, res) => {
+    try {
+        const foodItems = await FoodItem.findAll();
+        res.status(200).json({ foodItems });
+    } catch (error) {
+        res.status(500).json({ error: 'Internal server error', details: error });
+    }
+};
+
+exports.createMeal = async (req, res) => {const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const User = require('../models/User');
+const SugerRecord = require('../models/SugerRecord');
+const path = require('path');
+
+exports.createRecord = async (req, res) => {
+    const { level, meal, note, timestamp } = req.body;
+
+    try {
+        await SugerRecord.create(level, meal, note, timestamp);
+        res.status(201).json({ message: 'Sugar Log created successfully' });
+    } catch (error) {
+        res.status(500).json({ error: 'Internal server error', details: error });
+    }
+};
+
+exports.getAllRecords = async (req, res) => {
+    try {
+        const records = await SugerRecord.findAll();
+        res.status(200).json({ records });
+    } catch (error) {
+        res.status(500).json({ error: 'Internal server error', details: error });
+    }
+};
+
+exports.findByDateRange = async (req, res) => {
+    const { fromDate, toDate } = req.body;
+
+    try {
+        const records = await SugerRecord.findByDateRange(fromDate, toDate);
+        res.status(200).json({ records });
+    } catch (error) {
+        res.status(500).json({ error: 'Internal server error', details: error });
+    }
+};
+
+
+    const { name, date, timestamp, totalCal, selectedItems, mealType } = req.body;
+
+    try {
+        const mealResult = await Meal.create(name, date, timestamp, totalCal, mealType);
+        const mealId = mealResult.insertId;
+
+        for (const item of selectedItems) {
+            await MealItem.create(item, mealId);
+        }
+
+        res.status(201).json({ message: 'Meal created successfully', mealId });
+    } catch (error) {
+        res.status(500).json({ error: 'Internal server error', details: error });
+    }
+};
+
+exports.getAllMeals = async (req, res) => {
+    try {
+        const mealItems = await Meal.findAll();
+        res.status(200).json({ mealItems });
+    } catch (error) {
+        res.status(500).json({ error: 'Internal server error', details: error });
+    }
+};
+
+exports.findByDateRange = async (req, res) => {
+    const { fromDate, toDate } = req.body;
+
+    try {
+        const mealItems = await Meal.findByDateRange(fromDate, toDate);
+        res.status(200).json({ mealItems });
+    } catch (error) {
+        res.status(500).json({ error: 'Internal server error', details: error });
+    }
+};
+
+exports.deleteMeal = async (req, res) => {
+    const { id } = req.body;
+
+    try {
+        await MealItem.deleteByMealId(id);
+        await Meal.deleteById(id);
+        res.status(201).json({ message: 'Meal deleted successfully' });
+    } catch (error) {
+        res.status(500).json({ error: 'Internal server error', details: error });
+    }
+};
+
+exports.cloneMeal = async (req, res) => {
+    const { id } = req.body;
+
+    try {
+        const meal = await Meal.findById(id);
+        const mealItems = await MealItem.findById(id);
+        const foodIds = mealItems.map(item => item.food_id);
+
+        const data = {
+            totalCal: meal.totalCal,
+            foodIds: foodIds
+        };
+
+        res.status(200).json({ data });
+    } catch (error) {
+        res.status(500).json({ error: 'Internal server error', details: error });
+    }
+};
 
 const getRandomMeal = (mealList) => {
     const randomIndex = Math.floor(Math.random() * mealList.length);

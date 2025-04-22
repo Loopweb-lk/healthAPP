@@ -1,9 +1,9 @@
 const dbService = require('../config/dbService');
 
 const User = {
-    create: async (username, email, password) => {
-        const sql = 'INSERT INTO users (username, email, password) VALUES (?, ?, ?)';
-        return await dbService.query(sql, [username, email, password]);
+    create: async (username, email, password, mealType, calorieBurn, calorieIntake) => {
+        const sql = 'INSERT INTO users (username, email, password, mealType, calorieBurn, calorieIntake ) VALUES (?, ?, ?, ?, ?, ?)';
+        return await dbService.query(sql, [username, email, password, mealType, calorieBurn, calorieIntake]);
     },
 
     findByUsername: async (username) => {

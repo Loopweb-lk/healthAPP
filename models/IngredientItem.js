@@ -1,9 +1,9 @@
 const dbService = require('../config/dbService');
 
 const IngredientItem = {
-    create: async (item, food_id) => {
-        const sql = 'INSERT INTO ingredient_item (item, food_id, quantity ) VALUES (?, ?, ?)';
-        return await dbService.query(sql, [item, food_id]);
+    create: async (item, qty, food_id) => {
+        const sql = 'INSERT INTO ingredient_item (item, quantity, food_id ) VALUES (?, ?, ?)';
+        return await dbService.query(sql, [item, qty, food_id]);
     },
 
     findAll: async () => {
