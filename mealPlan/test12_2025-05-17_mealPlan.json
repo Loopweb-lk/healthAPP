@@ -1,0 +1,261 @@
+{
+  "monday": {
+    "meals": {
+      "breakfast": {
+        "id": 157,
+        "name": "Milk Rice (Kiri Bath) with Onion Sambol",
+        "category": "Breakfast",
+        "size": "1",
+        "calorie": 280,
+        "type": "Veg"
+      },
+      "lunch": {
+        "id": 96,
+        "name": "Brown Rice with Potato Curry, Cabbage Mallung, and Tomato Curry",
+        "category": "Lunch",
+        "size": "1",
+        "calorie": 350,
+        "type": "Veg"
+      },
+      "snack": {
+        "id": 107,
+        "name": "Carrot and Beet Salad with Light Dressing",
+        "category": "Snack",
+        "size": "1",
+        "calorie": 150,
+        "type": "Veg"
+      },
+      "dinner": {
+        "id": 130,
+        "name": "Vegetable Stir-Fry with Light Soy Sauce",
+        "category": "Dinner",
+        "size": "1",
+        "calorie": 200,
+        "type": "Veg"
+      }
+    },
+    "totalCalories": 980
+  },
+  "tuesday": {
+    "meals": {
+      "breakfast": {
+        "id": 155,
+        "name": "Banana Pancakes made with Coconut Flour",
+        "category": "Breakfast",
+        "size": "1",
+        "calorie": 230,
+        "type": "Veg"
+      },
+      "lunch": {
+        "id": 100,
+        "name": "Red Rice with Fish Curry, Cabbage Mallung, Beans Curry, and Gotukola Sambol",
+        "category": "Lunch",
+        "size": "1",
+        "calorie": 400,
+        "type": "Veg"
+      },
+      "snack": {
+        "id": 101,
+        "name": "Cucumber and Yogurt Salad with Chickpeas",
+        "category": "Snack",
+        "size": "1",
+        "calorie": 150,
+        "type": "Veg"
+      },
+      "dinner": {
+        "id": 129,
+        "name": "Tofu and Spinach Stir-Fry with Garlic",
+        "category": "Dinner",
+        "size": "1",
+        "calorie": 270,
+        "type": "Veg"
+      }
+    },
+    "totalCalories": 1050
+  },
+  "wednesday": {
+    "meals": {
+      "breakfast": {
+        "id": 151,
+        "name": "Oats Porridge with Fresh Mango Slices",
+        "category": "Breakfast",
+        "size": "1",
+        "calorie": 220,
+        "type": "Veg"
+      },
+      "lunch": {
+        "id": 98,
+        "name": "Brown Rice with Mushroom Curry, Bitter Gourd Curry, and Gotukola Sambol",
+        "category": "Lunch",
+        "size": "1",
+        "calorie": 365,
+        "type": "Veg"
+      },
+      "snack": {
+        "id": 114,
+        "name": "Grilled Paneer with Mint Chutney",
+        "category": "Snack",
+        "size": "1",
+        "calorie": 130,
+        "type": "Veg"
+      },
+      "dinner": {
+        "id": 130,
+        "name": "Vegetable Stir-Fry with Light Soy Sauce",
+        "category": "Dinner",
+        "size": "1",
+        "calorie": 200,
+        "type": "Veg"
+      }
+    },
+    "totalCalories": 915
+  },
+  "thursday": {
+    "meals": {
+      "breakfast": {
+        "id": 157,
+        "name": "Milk Rice (Kiri Bath) with Onion Sambol",
+        "category": "Breakfast",
+        "size": "1",
+        "calorie": 280,
+        "type": "Veg"
+      },
+      "lunch": {
+        "id": 94,
+        "name": "Brown Rice with Lentil Curry, Spinach Mallung, and Carrot Sambol",
+        "category": "Lunch",
+        "size": "1",
+        "calorie": 360,
+        "type": "Veg"
+      },
+      "snack": {
+        "id": 113,
+        "name": "Chia Pudding with Coconut Milk and Mango",
+        "category": "Snack",
+        "size": "1",
+        "calorie": 200,
+        "type": "Veg"
+      },
+      "dinner": {
+        "id": 126,
+        "name": "Stir-Fry with Noodles with chicken curry",
+        "category": "Dinner",
+        "size": "1",
+        "calorie": 370,
+        "type": "Veg"
+      }
+    },
+    "totalCalories": 1210
+  },
+  "friday": {
+    "meals": {
+      "breakfast": {
+        "id": 155,
+        "name": "Banana Pancakes made with Coconut Flour",
+        "category": "Breakfast",
+        "size": "1",
+        "calorie": 230,
+        "type": "Veg"
+      },
+      "lunch": {
+        "id": 94,
+        "name": "Brown Rice with Lentil Curry, Spinach Mallung, and Carrot Sambol",
+        "category": "Lunch",
+        "size": "1",
+        "calorie": 360,
+        "type": "Veg"
+      },
+      "snack": {
+        "id": 109,
+        "name": "Apple Slices with Peanut Butter",
+        "category": "Snack",
+        "size": "1",
+        "calorie": 150,
+        "type": "Veg"
+      },
+      "dinner": {
+        "id": 127,
+        "name": "Grilled Chicken Salad with Cucumber and Tomato",
+        "category": "Dinner",
+        "size": "1",
+        "calorie": 300,
+        "type": "Veg"
+      }
+    },
+    "totalCalories": 1040
+  },
+  "saturday": {
+    "meals": {
+      "breakfast": {
+        "id": 160,
+        "name": "String Hoppers with Coconut Sambol and Lentil Curry",
+        "category": "Breakfast",
+        "size": "1",
+        "calorie": 250,
+        "type": "Veg"
+      },
+      "lunch": {
+        "id": 98,
+        "name": "Brown Rice with Mushroom Curry, Bitter Gourd Curry, and Gotukola Sambol",
+        "category": "Lunch",
+        "size": "1",
+        "calorie": 365,
+        "type": "Veg"
+      },
+      "snack": {
+        "id": 112,
+        "name": "Roasted Peanuts with Fresh Coconut Slices",
+        "category": "Snack",
+        "size": "1",
+        "calorie": 170,
+        "type": "Veg"
+      },
+      "dinner": {
+        "id": 130,
+        "name": "Vegetable Stir-Fry with Light Soy Sauce",
+        "category": "Dinner",
+        "size": "1",
+        "calorie": 200,
+        "type": "Veg"
+      }
+    },
+    "totalCalories": 985
+  },
+  "sunday": {
+    "meals": {
+      "breakfast": {
+        "id": 151,
+        "name": "Oats Porridge with Fresh Mango Slices",
+        "category": "Breakfast",
+        "size": "1",
+        "calorie": 220,
+        "type": "Veg"
+      },
+      "lunch": {
+        "id": 98,
+        "name": "Brown Rice with Mushroom Curry, Bitter Gourd Curry, and Gotukola Sambol",
+        "category": "Lunch",
+        "size": "1",
+        "calorie": 365,
+        "type": "Veg"
+      },
+      "snack": {
+        "id": 114,
+        "name": "Grilled Paneer with Mint Chutney",
+        "category": "Snack",
+        "size": "1",
+        "calorie": 130,
+        "type": "Veg"
+      },
+      "dinner": {
+        "id": 126,
+        "name": "Stir-Fry with Noodles with chicken curry",
+        "category": "Dinner",
+        "size": "1",
+        "calorie": 370,
+        "type": "Veg"
+      }
+    },
+    "totalCalories": 1085
+  }
+}

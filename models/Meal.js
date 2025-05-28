@@ -1,20 +1,20 @@
 const dbService = require('../config/dbService');
 
 const Meal = {
-    create: async (name, date, timestamp, totalCal, mealType) => {
-        const sql = 'INSERT INTO meal (name, date, timestamp, totalCal, type) VALUES (?, ?, ?, ?, ?)';
-        return await dbService.query(sql, [name, date, timestamp, totalCal, mealType]);
+    create: async (name, date, timestamp, totalCal, mealType, user) => {
+        const sql = 'INSERT INTO meal (name, date, timestamp, totalCal, type, user) VALUES (?, ?, ?, ?, ?, ?)';
+        return await dbService.query(sql, [name, date, timestamp, totalCal, mealType, user]);
     },
 
-    findAll: async () => {
-        const sql = 'SELECT id, name, date, timestamp, totalCal, type FROM meal ORDER BY timestamp DESC';
-        const results = await dbService.query(sql);
+    findAll: async (user) => {
+        const sql = 'SELECT id, name, date, timestamp, totalCal, type FROM meal WHERE user = ? ORDER BY timestamp DESC';
+        const results = await dbService.query(sql, [user]);
         return results;
     },
 
-    findByType: async (type) => {
-        const sql = 'SELECT id, name, date, timestamp, totalCal, type FROM meal WHERE type = ?';
-        const results = await dbService.query(sql, [type]);
+    findByType: async (type, user) => {
+        const sql = 'SELECT id, name, date, timestamp, totalCal, type FROM meal WHERE type = ? AND user = ?';
+        const results = await dbService.query(sql, [type, user]);
         return results;
     },
 
@@ -24,25 +24,26 @@ const Meal = {
         return results[0];
     },
 
-    findLatestOfEachType: async () => {
+    findLatestOfEachType: async (user) => {
         const sql = `
             SELECT m.*
             FROM meal m
             INNER JOIN (
             SELECT type, MAX(timestamp) as max_timestamp
             FROM meal
+            where user = ?
             GROUP BY type
             ) latest
             ON m.type = latest.type AND m.timestamp = latest.max_timestamp
         `;
-        const results = await dbService.query(sql);
+        const results = await dbService.query(sql, [user]);
         return results;
     },
 
 
-    findByDateRange: async (fromDate, toDate) => {
-        const sql = `SELECT id, name, date, timestamp, totalCal, type FROM meal WHERE date BETWEEN ? AND ?`;
-        const results = await dbService.query(sql, [fromDate, toDate]);
+    findByDateRange: async (fromDate, toDate, user) => {
+        const sql = `SELECT id, name, date, timestamp, totalCal, type FROM meal WHERE date BETWEEN ? AND ? AND user = ?`;
+        const results = await dbService.query(sql, [fromDate, toDate, user]);
         return results;
     },
 

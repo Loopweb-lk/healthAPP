@@ -24,9 +24,21 @@ const router = express.Router();
  *                 type: string
  *               password:
  *                 type: string
+ *               type:
+ *                 type: string
+ *               CIG:
+ *                 type: string
+ *               CBG:
+ *                 type: string
+ *             required:
+ *               - username
+ *               - email
+ *               - password
  *     responses:
  *       201:
  *         description: User registered successfully
+ *       500:
+ *         description: Internal server error
  */
 router.post('/register', register);
 
@@ -38,6 +50,7 @@ router.post('/register', register);
  *       - Authentication
  *     summary: Login a user
  *     requestBody:
+ *       required: true
  *       content:
  *         application/json:
  *           schema:
@@ -60,10 +73,14 @@ router.post('/register', register);
  *               properties:
  *                 message:
  *                   type: string
- *                   example: "Success"
+ *                   example: Login successful
  *                 token:
  *                   type: string
  *                   example: "A1122XXXXXXXXXXXXXXXX"
+ *       401:
+ *         description: Invalid credentials
+ *       500:
+ *         description: Internal server error
  */
 
 router.post('/login', login);
@@ -74,17 +91,21 @@ router.post('/login', login);
  *   post:
  *     tags:
  *       - Authentication
- *     summary: Signout a user
+ *     summary: Sign out a user
+ *     security:
+ *       - bearerAuth: []
  *     requestBody:
+ *       description: Requires authorization token in header
  *       required: true
  *       content:
  *         application/json:
  *           schema:
  *             type: object
- *             properties:
  *     responses:
  *       200:
- *         description: Logout successful
+ *         description: Successfully signed out
+ *       400:
+ *         description: Token required for sign out
  */
 router.post('/logout', logout);
 
@@ -94,7 +115,7 @@ router.post('/logout', logout);
  *   post:
  *     tags:
  *       - Authentication
- *     summary: Reset a password
+ *     summary: Reset password using token
  *     requestBody:
  *       required: true
  *       content:
@@ -102,13 +123,20 @@ router.post('/logout', logout);
  *           schema:
  *             type: object
  *             properties:
- *               username:
+ *               password:
  *                 type: string
- *               email:
+ *               token:
  *                 type: string
+ *             required:
+ *               - password
+ *               - token
  *     responses:
  *       200:
- *         description: Password reset code sent successfully
+ *         description: Reset successful
+ *       400:
+ *         description: Invalid token
+ *       500:
+ *         description: Internal server error
  */
 router.post('/password-rest', passwordRest);
 
@@ -118,7 +146,7 @@ router.post('/password-rest', passwordRest);
  *   post:
  *     tags:
  *       - Authentication
- *     summary: Refresh the token
+ *     summary: Refresh authentication token
  *     requestBody:
  *       required: true
  *       content:
@@ -128,9 +156,13 @@ router.post('/password-rest', passwordRest);
  *             properties:
  *               token:
  *                 type: string
+ *             required:
+ *               - token
  *     responses:
  *       200:
  *         description: Token refresh successful
+ *       500:
+ *         description: Internal server error
  */
 router.post('/refresh-token', refreshToken);
 

@@ -2,14 +2,14 @@ const dbService = require('../config/dbService');
 
 const Activity = {
 
-    create: async (activity, timePeriod, timestamp, burnedCal) => {
-        const sql = 'INSERT INTO activity (activity, timePeriod, timestamp, burnedCal) VALUES (?, ?, ?, ?)';
-        return await dbService.query(sql, [activity, timePeriod, timestamp, burnedCal]);
+    create: async (activity, timePeriod, timestamp, burnedCal, user) => {
+        const sql = 'INSERT INTO activity (activity, timePeriod, timestamp, user, burnedCal) VALUES (?, ?, ?, ?, ?)';
+        return await dbService.query(sql, [activity, timePeriod, timestamp, user, burnedCal]);
     },
 
-    findAll: async () => {
-        const sql = 'SELECT activity, timePeriod, timestamp, burnedCal FROM activity ORDER BY timestamp DESC';
-        const results = await dbService.query(sql);
+    findAll: async (user) => {
+        const sql = 'SELECT activity, timePeriod, timestamp, burnedCal FROM activity WHERE user = ? ORDER BY timestamp DESC';
+        const results = await dbService.query(sql, [user]);
         return results;
     },
 

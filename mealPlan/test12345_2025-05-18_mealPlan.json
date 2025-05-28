@@ -1,0 +1,261 @@
+{
+  "monday": {
+    "meals": {
+      "breakfast": {
+        "id": 145,
+        "name": "Steamed Rice Cakes (Pittu) with Dhal Curry",
+        "category": "Breakfast",
+        "size": "1",
+        "calorie": 280,
+        "type": "Non-Veg"
+      },
+      "lunch": {
+        "id": 80,
+        "name": "Brown Rice with Chicken Ambul Thiyal, Bitter Gourd Curry, Pumpkin Curry, and Gotukola Sambol",
+        "category": "Lunch",
+        "size": "1",
+        "calorie": 400,
+        "type": "Non-Veg"
+      },
+      "snack": {
+        "id": 119,
+        "name": "Watermelon Cubes with Mint",
+        "category": "Snack",
+        "size": "1",
+        "calorie": 120,
+        "type": "Non-Veg"
+      },
+      "dinner": {
+        "id": 171,
+        "name": "Dried Fish Curry with Fish Ambul Thiyal with Fried Fish Slices",
+        "category": "Dinner",
+        "size": "1",
+        "calorie": 475,
+        "type": "Non-Veg"
+      }
+    },
+    "totalCalories": 1275
+  },
+  "tuesday": {
+    "meals": {
+      "breakfast": {
+        "id": 147,
+        "name": "Avocado Smoothie with Kurakkan Flour Pancakes",
+        "category": "Breakfast",
+        "size": "1",
+        "calorie": 300,
+        "type": "Non-Veg"
+      },
+      "lunch": {
+        "id": 82,
+        "name": "Brown Rice with Eggplant Moju, Beans Curry, Beetroot Curry, and Cuttlefish Curry ",
+        "category": "Lunch",
+        "size": "1",
+        "calorie": 360,
+        "type": "Non-Veg"
+      },
+      "snack": {
+        "id": 119,
+        "name": "Watermelon Cubes with Mint",
+        "category": "Snack",
+        "size": "1",
+        "calorie": 120,
+        "type": "Non-Veg"
+      },
+      "dinner": {
+        "id": 132,
+        "name": "Roasted Pumpkin with Spinach and Coconut Milk",
+        "category": "Dinner",
+        "size": "1",
+        "calorie": 250,
+        "type": "Non-Veg"
+      }
+    },
+    "totalCalories": 1030
+  },
+  "wednesday": {
+    "meals": {
+      "breakfast": {
+        "id": 145,
+        "name": "Steamed Rice Cakes (Pittu) with Dhal Curry",
+        "category": "Breakfast",
+        "size": "1",
+        "calorie": 280,
+        "type": "Non-Veg"
+      },
+      "lunch": {
+        "id": 167,
+        "name": "Brown Rice with Fish Curry with Gotukola Sambol",
+        "category": "Lunch",
+        "size": "1",
+        "calorie": 217,
+        "type": "Non-Veg"
+      },
+      "snack": {
+        "id": 119,
+        "name": "Watermelon Cubes with Mint",
+        "category": "Snack",
+        "size": "1",
+        "calorie": 120,
+        "type": "Non-Veg"
+      },
+      "dinner": {
+        "id": 131,
+        "name": "Cucumber Salad with Chickpeas and Yogurt Dressing",
+        "category": "Dinner",
+        "size": "1",
+        "calorie": 180,
+        "type": "Non-Veg"
+      }
+    },
+    "totalCalories": 797
+  },
+  "thursday": {
+    "meals": {
+      "breakfast": {
+        "id": 147,
+        "name": "Avocado Smoothie with Kurakkan Flour Pancakes",
+        "category": "Breakfast",
+        "size": "1",
+        "calorie": 300,
+        "type": "Non-Veg"
+      },
+      "lunch": {
+        "id": 77,
+        "name": "Red Rice with Chicken Curry, Snake Gourd Curry, Cabbage Mallung, and Beetroot Curry",
+        "category": "Lunch",
+        "size": "1",
+        "calorie": 380,
+        "type": "Non-Veg"
+      },
+      "snack": {
+        "id": 119,
+        "name": "Watermelon Cubes with Mint",
+        "category": "Snack",
+        "size": "1",
+        "calorie": 120,
+        "type": "Non-Veg"
+      },
+      "dinner": {
+        "id": 171,
+        "name": "Dried Fish Curry with Fish Ambul Thiyal with Fried Fish Slices",
+        "category": "Dinner",
+        "size": "1",
+        "calorie": 475,
+        "type": "Non-Veg"
+      }
+    },
+    "totalCalories": 1275
+  },
+  "friday": {
+    "meals": {
+      "breakfast": {
+        "id": 147,
+        "name": "Avocado Smoothie with Kurakkan Flour Pancakes",
+        "category": "Breakfast",
+        "size": "1",
+        "calorie": 300,
+        "type": "Non-Veg"
+      },
+      "lunch": {
+        "id": 85,
+        "name": "Red Rice with Chicken Curry, Spinach Mallung, Luffa Curry, and Tomato Sambol",
+        "category": "Lunch",
+        "size": "1",
+        "calorie": 380,
+        "type": "Non-Veg"
+      },
+      "snack": {
+        "id": 119,
+        "name": "Watermelon Cubes with Mint",
+        "category": "Snack",
+        "size": "1",
+        "calorie": 120,
+        "type": "Non-Veg"
+      },
+      "dinner": {
+        "id": 132,
+        "name": "Roasted Pumpkin with Spinach and Coconut Milk",
+        "category": "Dinner",
+        "size": "1",
+        "calorie": 250,
+        "type": "Non-Veg"
+      }
+    },
+    "totalCalories": 1050
+  },
+  "saturday": {
+    "meals": {
+      "breakfast": {
+        "id": 145,
+        "name": "Steamed Rice Cakes (Pittu) with Dhal Curry",
+        "category": "Breakfast",
+        "size": "1",
+        "calorie": 280,
+        "type": "Non-Veg"
+      },
+      "lunch": {
+        "id": 92,
+        "name": "Brown Rice with Sprouted Mung Bean Curry, Snake Gourd Curry, Pumpkin Curry, and Kathurumurnga Sambol",
+        "category": "Lunch",
+        "size": "1",
+        "calorie": 360,
+        "type": "Non-Veg"
+      },
+      "snack": {
+        "id": 118,
+        "name": "Grilled Vegetables with Yoghurt Dip",
+        "category": "Snack",
+        "size": "1",
+        "calorie": 150,
+        "type": "Non-Veg"
+      },
+      "dinner": {
+        "id": 122,
+        "name": "Grilled Tuna with Steamed Vegetables",
+        "category": "Dinner",
+        "size": "1",
+        "calorie": 300,
+        "type": "Non-Veg"
+      }
+    },
+    "totalCalories": 1090
+  },
+  "sunday": {
+    "meals": {
+      "breakfast": {
+        "id": 145,
+        "name": "Steamed Rice Cakes (Pittu) with Dhal Curry",
+        "category": "Breakfast",
+        "size": "1",
+        "calorie": 280,
+        "type": "Non-Veg"
+      },
+      "lunch": {
+        "id": 84,
+        "name": "Brown Rice with Prawn Curry, Bitter Gourd Curry, Pumpkin Curry, and Green Beans Curry",
+        "category": "Lunch",
+        "size": "1",
+        "calorie": 370,
+        "type": "Non-Veg"
+      },
+      "snack": {
+        "id": 119,
+        "name": "Watermelon Cubes with Mint",
+        "category": "Snack",
+        "size": "1",
+        "calorie": 120,
+        "type": "Non-Veg"
+      },
+      "dinner": {
+        "id": 174,
+        "name": "Red Rice with Beans Curry with Fish Curry with Chicken Curry",
+        "category": "Dinner",
+        "size": "1",
+        "calorie": 298,
+        "type": "Non-Veg"
+      }
+    },
+    "totalCalories": 1068
+  }
+}

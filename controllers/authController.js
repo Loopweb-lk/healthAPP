@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+const PasswordReset = require('../models/PasswordReset');
 
 exports.register = async (req, res) => {
     const { username, email, password, type, CIG, CBG } = req.body;
@@ -44,7 +45,24 @@ exports.logout = async (req, res) => {
 };
 
 exports.passwordRest = async (req, res) => {
-    res.status(200).json({ message: 'Successfully signed out' });
+    const { password, token } = req.body;
+
+    try {
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        const tokenData = await PasswordReset.findByToken(token)
+        if (tokenData.length == 0) {
+            res.status(400).json({ message: 'Invalid token' });
+        } else {
+            const userData = await User.changePassword(tokenData[0].email, hashedPassword);
+            res.json({ message: 'Reset successful' });
+        }
+
+
+
+    } catch (error) {
+        res.status(500).json({ error: 'Internal server error', details: error });
+    }
 };
 
 exports.refreshToken = async (req, res) => {

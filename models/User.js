@@ -11,6 +11,22 @@ const User = {
         const results = await dbService.query(sql, [username]);
         return results[0];
     },
+
+    changePassword: async (email, newPassword) => {
+        const sql = 'UPDATE users SET password = ? WHERE email = ?';
+        return await dbService.query(sql, [newPassword, email]);
+    },
+
+    updateByEmail: async (username, email, mealType, calorieBurn, calorieIntake) => {
+        const sql = `
+          UPDATE users
+          SET username = ?, mealType = ?, calorieBurn = ?, calorieIntake = ?
+          WHERE email = ?
+        `;
+        return await dbService.query(sql, [username, mealType, calorieBurn, calorieIntake, email]);
+    },
+
+
 };
 
 module.exports = User;

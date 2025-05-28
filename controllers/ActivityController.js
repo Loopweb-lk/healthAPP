@@ -8,7 +8,8 @@ exports.createActivity = async (req, res) => {
     const { activity, timePeriod, timestamp, burnedCal } = req.body;
 
     try {
-        await Activity.create(activity, timePeriod, timestamp, burnedCal);
+        const user = await User.findByUsername(req.user.username);
+        await Activity.create(activity, timePeriod, timestamp, burnedCal, user.id);
         res.status(201).json({ message: 'Activity Log created successfully' });
     } catch (error) {
         res.status(500).json({ error: 'Internal server error', details: error });
@@ -17,7 +18,8 @@ exports.createActivity = async (req, res) => {
 
 exports.getAllRecords = async (req, res) => {
     try {
-        const records = await Activity.findAll();
+        const user = await User.findByUsername(req.user.username);
+        const records = await Activity.findAll(user.id);
         res.status(200).json({ records });
     } catch (error) {
         res.status(500).json({ error: 'Internal server error', details: error });
